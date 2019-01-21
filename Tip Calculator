@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tip Calculator</title>
+<style>
+  body {
+    background-color: #21d4fd;
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    margin:50px;
+    }
+
+  h1 {
+    color:#2126fd;
+    font-size: 40px;
+    }
+
+  h2 {
+      color:#2126fd;
+      font-size: 25px;
+      }
+
+  .btn {
+    padding:10px 20px;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:bold;
+    border-right: 2px solid #666666;
+    border-bottom: 2px solid #333333;
+    background-color: #ff6600;
+    }
+
+    p {
+      background-color: #ff6600;
+      line-height:50px;
+      font-size:25px;
+      font-weight:bold;
+      color: #ffffff;
+      font-style: oblique;
+      }
+
+  .box {
+    background-color: #f3f0dc;
+    border: 4px dotted #2827fd;
+    padding: 40px;
+    background: radial-gradient(#ffffff 0,#f3f0dc 100%);
+    }
+</style>
+</head>
+<body>
+<h1>Tip Calculator</h1>
+<br />
+<div class="box">
+Select Tip Percentage:
+<select id="tipSelect">
+  <option>10%</option>
+  <option>15%</option>
+  <option>20%</option>
+</select>
+<br /><br />
+
+Enter Meal Price :
+<input id="mealPrice" value="" />
+
+<br /><br />
+
+<button onclick="calculate()" class="btn">Submit</button>
+</div>
+
+<br /><br />
+<p id="result"></p>
+
+<script>
+function calculate() {
+   var mealPrice = Number(document.getElementById("mealPrice").value);
+   var twenty = mealPrice*0.2;
+   var fifteen = mealPrice*0.15;
+   var ten = mealPrice*0.1;
+
+    if (document.getElementById("tipSelect").selectedIndex == 0) {
+      document.getElementById("result").innerHTML = "If you want to give 10% tip for $" + mealPrice + " meal," +
+        "<br />" + "Tip is $" + ten +
+        "<br />" + "Total is $" + (ten + mealPrice);
+    } else if  (document.getElementById("tipSelect").selectedIndex == 1) {
+      document.getElementById("result").innerHTML = "If you want to give 15% tip for $" + mealPrice + " meal," +
+        "<br />" + "Tip is $" + fifteen +
+        "<br />" + "Total is $" + (fifteen + mealPrice);
+    } else {
+      document.getElementById("result").innerHTML = "If you want to give 20% tip for $" + mealPrice + " meal," +
+        "<br />" + "Tip is $" + twenty +
+        "<br />" + "Total is $" + (twenty + mealPrice);
+    };
+}
+</script>
+
+</body>
+</html>
